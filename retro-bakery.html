@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Техкарти — торти, які виходять з першого разу</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Rubik:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --kraft:#E4D2B0;
+    --kraft-dark:#D6C09A;
+    --cream:#F8EEDB;
+    --ink:#2A1B10;
+    --red:#B23A2E;
+    --mustard:#D9A227;
+    --line:rgba(42,27,16,.35);
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0;color:var(--ink);font-family:'Rubik',-apple-system,Arial,sans-serif;
+    background-color:var(--kraft);
+    background-image:
+      radial-gradient(rgba(42,27,16,.05) 1px, transparent 1px),
+      linear-gradient(180deg, rgba(255,255,255,.18), rgba(0,0,0,.03));
+    background-size:4px 4px, 100% 100%;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 32px}
+
+  /* marquee */
+  .marquee{background:var(--red);color:var(--cream);border-bottom:3px solid var(--ink);overflow:hidden;white-space:nowrap}
+  .marquee div{display:inline-block;padding:7px 0;font-family:'Oswald',sans-serif;font-size:12px;
+    letter-spacing:.22em;text-transform:uppercase;animation:slide 26s linear infinite}
+  .marquee span{padding:0 22px}
+  @keyframes slide{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+  /* header */
+  header{border-bottom:3px solid var(--ink);background:var(--kraft)}
+  .head{display:flex;align-items:center;justify-content:space-between;height:84px;gap:20px}
+  .logo{display:flex;align-items:center;gap:12px}
+  .logo b{font-family:'Oswald',sans-serif;font-size:22px;letter-spacing:.08em;text-transform:uppercase;line-height:1}
+  .logo small{display:block;font-size:9px;letter-spacing:.2em;text-transform:uppercase;opacity:.65;margin-top:3px}
+  .badge{width:44px;height:44px;border:3px solid var(--ink);border-radius:50%;display:grid;place-items:center;
+    font-family:'Oswald',sans-serif;font-size:15px;background:var(--mustard);transform:rotate(-8deg)}
+  nav{display:flex;gap:26px;font-size:13px;font-weight:500;letter-spacing:.04em;text-transform:uppercase}
+  nav a{border-bottom:2px solid transparent;padding-bottom:3px}
+  nav a:hover{border-color:var(--red)}
+  .btn{
+    display:inline-block;background:var(--red);color:var(--cream);border:3px solid var(--ink);
+    padding:14px 22px;font-family:'Oswald',sans-serif;font-size:15px;letter-spacing:.08em;text-transform:uppercase;
+    box-shadow:5px 5px 0 var(--ink);transition:transform .12s, box-shadow .12s;
+  }
+  .btn:hover{transform:translate(3px,3px);box-shadow:2px 2px 0 var(--ink)}
+  .btn.alt{background:var(--mustard);color:var(--ink)}
+
+  /* hero */
+  .hero{padding:64px 0 56px;position:relative}
+  .hero .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center}
+  .kicker{display:inline-block;border:2px dashed var(--ink);padding:6px 12px;font-size:11px;
+    letter-spacing:.18em;text-transform:uppercase;transform:rotate(-1.5deg);margin-bottom:26px;background:rgba(255,255,255,.25)}
+  h1{font-family:'Oswald',sans-serif;font-weight:600;text-transform:uppercase;margin:0;
+    font-size:clamp(40px,5.4vw,78px);line-height:1.06;letter-spacing:.005em}
+  h1 mark{background:var(--red);color:var(--cream);padding:0 .08em;box-decoration-break:clone;-webkit-box-decoration-break:clone;white-space:nowrap}
+  .sub{max-width:480px;margin:24px 0 0;font-size:17px;line-height:1.6}
+  .hero-cta{display:flex;align-items:center;gap:24px;margin-top:32px;flex-wrap:wrap}
+  .hero-cta p{margin:0;font-size:12px;line-height:1.5;max-width:190px;opacity:.75}
+  .under{display:inline-block;border-bottom:3px solid var(--mustard);padding-bottom:2px}
+
+  /* price sticker */
+  .sticker-wrap{display:flex;justify-content:center;position:relative}
+  .sticker{
+    width:250px;height:250px;border-radius:50%;background:var(--cream);border:3px solid var(--ink);
+    display:grid;place-items:center;text-align:center;transform:rotate(7deg);
+    box-shadow:8px 8px 0 rgba(42,27,16,.25);position:relative;z-index:2;
+  }
+  .sticker::before{content:"";position:absolute;inset:11px;border:2px dashed var(--ink);border-radius:50%;opacity:.5}
+  .sticker b{display:block;font-family:'Oswald',sans-serif;font-size:62px;line-height:.9}
+  .sticker span{display:block;margin-top:6px;font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;opacity:.7}
+  .sticker i{display:block;margin-top:4px;font-style:normal;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--red)}
+
+  .folder{position:absolute;left:50%;top:50%;width:300px;height:210px;transform:translate(-50%,-50%) rotate(-7deg);
+    background:var(--cream);border:3px solid var(--ink);box-shadow:6px 6px 0 rgba(42,27,16,.18)}
+  .folder.two{transform:translate(-42%,-56%) rotate(-2deg);opacity:.85}
+
+  /* scallop */
+  
+  /* card section */
+  .inside{padding:56px 0 72px}
+  .card{background:var(--cream);border:3px solid var(--ink);box-shadow:8px 8px 0 rgba(42,27,16,.18);padding:44px 44px 34px}
+  .card-head{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;margin-bottom:26px;flex-wrap:wrap}
+  h2{font-family:'Oswald',sans-serif;font-size:clamp(28px,3.4vw,42px);text-transform:uppercase;letter-spacing:.01em;margin:0;line-height:1}
+  .card-head p{margin:0;max-width:320px;font-size:13.5px;line-height:1.55;opacity:.72}
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:0 44px}
+  .row{display:flex;gap:16px;padding:17px 0;border-bottom:2px dashed var(--line)}
+  .row .n{flex:0 0 30px;height:30px;border:2px solid var(--ink);border-radius:50%;display:grid;place-items:center;
+    font-family:'Oswald',sans-serif;font-size:13px;background:var(--mustard)}
+  .row h3{margin:0 0 4px;font-size:15.5px;font-weight:600}
+  .row p{margin:0;font-size:13.5px;line-height:1.5;opacity:.75}
+
+  /* tickets */
+  .how{padding:16px 0 76px}
+  .tickets{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:30px}
+  .ticket{position:relative;background:var(--kraft-dark);border:2px dashed var(--ink);padding:26px 22px 24px;
+    box-shadow:5px 5px 0 rgba(42,27,16,.16)}
+  .ticket:nth-child(1){transform:rotate(-1.2deg)}
+  .ticket:nth-child(2){transform:rotate(.8deg);background:var(--cream)}
+  .ticket:nth-child(3){transform:rotate(-.6deg)}
+  .ticket::before,.ticket::after{content:"";position:absolute;width:18px;height:18px;border-radius:50%;background:var(--kraft);top:50%;margin-top:-9px}
+  .ticket::before{left:-11px}.ticket::after{right:-11px}
+  .ticket b{display:block;font-family:'Oswald',sans-serif;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--red);margin-bottom:10px}
+  .ticket h3{font-family:'Oswald',sans-serif;font-size:21px;text-transform:uppercase;margin:0 0 8px;line-height:1.05}
+  .ticket p{margin:0;font-size:13.5px;line-height:1.5;opacity:.78}
+
+  /* final cta */
+  .final{border-top:3px solid var(--ink);background:var(--mustard);padding:52px 0}
+  .final .wrap{display:flex;align-items:center;justify-content:space-between;gap:30px;flex-wrap:wrap}
+  .final h2{max-width:560px}
+  .final small{display:block;margin-top:8px;font-size:12px;letter-spacing:.08em;text-transform:uppercase;opacity:.7}
+
+  footer{padding:30px 0 46px;background:var(--kraft)}
+  .foot{display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap}
+  .foot p{margin:0;font-size:11.5px;line-height:1.7;letter-spacing:.04em;text-transform:uppercase;opacity:.7}
+  .stamp{width:96px;height:96px;border:3px solid var(--red);border-radius:50%;color:var(--red);
+    display:grid;place-items:center;text-align:center;font-family:'Oswald',sans-serif;font-size:10.5px;
+    letter-spacing:.14em;text-transform:uppercase;transform:rotate(-12deg);opacity:.85;line-height:1.5}
+
+  @media (max-width:920px){
+    nav{display:none}
+    .hero .wrap{grid-template-columns:1fr}
+    .sticker-wrap{margin-top:34px;order:-1}
+    .sticker{width:200px;height:200px}
+    .sticker b{font-size:50px}
+    .folder{width:230px;height:160px}
+    .card{padding:26px 22px 18px}
+    .grid{grid-template-columns:1fr;gap:0}
+    .tickets{grid-template-columns:1fr}
+    .ticket{transform:none!important}
+    .final{padding:38px 0}
+    .head{height:70px}
+  }
+</style>
+</head>
+<body>
+
+<div class="marquee">
+  <div>
+    <span>Свіже</span><span>·</span><span>Перевірено на кухні</span><span>·</span><span>Покроково</span><span>·</span>
+    <span>З грамуванням</span><span>·</span><span>З собівартістю</span><span>·</span>
+    <span>Свіже</span><span>·</span><span>Перевірено на кухні</span><span>·</span><span>Покроково</span><span>·</span>
+    <span>З грамуванням</span><span>·</span><span>З собівартістю</span><span>·</span>
+  </div>
+</div>
+
+<header>
+  <div class="wrap head">
+    <div class="logo">
+      <span class="badge">ТК</span>
+      <div><b>Техкарти</b><small>кондитерська папка · з 2019</small></div>
+    </div>
+    <nav>
+      <a href="#inside">Що в папці</a>
+      <a href="#how">Як це працює</a>
+      <a href="#buy">Купити</a>
+    </nav>
+    <a class="btn" href="#buy">449&nbsp;₴</a>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="wrap">
+    <div>
+      <span class="kicker">10 техкарт · PDF · одна ціна</span>
+      <h1>Торти, які<br>виходять<br><mark>з першого</mark> разу</h1>
+      <p class="sub">Папка технологічних карток, з якою не треба вгадувати: скільки грамів,
+        яка температура, скільки коштує і скільки зберігається.</p>
+      <div class="hero-cta">
+        <a class="btn" href="#buy">Забрати набір</a>
+        <p>PDF одразу після оплати.<br><span class="under">Без підписки</span></p>
+      </div>
+    </div>
+
+    <div class="sticker-wrap">
+      <div class="folder two"></div>
+      <div class="folder"></div>
+      <div class="sticker">
+        <div>
+          <b>449&nbsp;₴</b>
+          <span>за весь набір</span>
+          <i>10 карток · 64 стор.</i>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section class="inside" id="inside">
+  <div class="wrap">
+    <div class="card">
+      <div class="card-head">
+        <h2>Що лежить у папці</h2>
+        <p>Кожна картка — окремий аркуш документа: від сировини до ціни на вітрині.</p>
+      </div>
+      <div class="grid">
+        <div class="row"><div class="n">1</div><div><h3>Рецептура брутто / нетто</h3><p>Грамування на 1 кг і на партію, з точністю до грама.</p></div></div>
+        <div class="row"><div class="n">2</div><div><h3>Технологія покроково</h3><p>Температури, час, обладнання та критерії готовності.</p></div></div>
+        <div class="row"><div class="n">3</div><div><h3>Таблиця собівартості</h3><p>Ціни інгредієнтів, націнка та рекомендована ціна.</p></div></div>
+        <div class="row"><div class="n">4</div><div><h3>Терміни зберігання</h3><p>Скільки живе виріб, за якої температури, як пакувати.</p></div></div>
+        <div class="row"><div class="n">5</div><div><h3>Алергени й КБЖВ</h3><p>Для маркування та відповідей клієнту без «на око».</p></div></div>
+        <div class="row"><div class="n">6</div><div><h3>Типові помилки</h3><p>Де саме «сідає» виріб і як це виправити.</p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="how" id="how">
+  <div class="wrap">
+    <h2>Як це працює</h2>
+    <div class="tickets">
+      <div class="ticket">
+        <b>Крок 1</b>
+        <h3>Платите карткою</h3>
+        <p>Один екран, без реєстрації. Потрібен лише email.</p>
+      </div>
+      <div class="ticket">
+        <b>Крок 2</b>
+        <h3>Отримуєте лист</h3>
+        <p>Протягом хвилини: посилання на PDF і доступ до кабінету.</p>
+      </div>
+      <div class="ticket">
+        <b>Крок 3</b>
+        <h3>Качаєте папку</h3>
+        <p>Файл лежить у кабінеті 12 місяців. Оновлення — безкоштовно.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="final" id="buy">
+  <div class="wrap">
+    <div>
+      <h2>Одна помилка в партії — і набір уже окупився</h2>
+      <small>Оплата карткою · Apple&nbsp;Pay · Google&nbsp;Pay</small>
+    </div>
+    <a class="btn alt" href="#">Купити за 449&nbsp;₴</a>
+  </div>
+</div>
+
+<footer>
+  <div class="wrap foot">
+    <p>ФОП ______________________<br>Публічна оферта · Політика конфіденційності</p>
+    <div class="stamp">Перевірено<br>на кухні<br>100%</div>
+    <p>Підтримка в Telegram<br>hello@example.com</p>
+  </div>
+</footer>
+
+</body>
+</html>

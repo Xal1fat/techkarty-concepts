@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Техкарти — 10 карток, 64 сторінки, 449 ₴</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{--ink:#0E0E0E;--paper:#FFFFFF;--rule:#DCDCDC;--soft:#F4F4F4;--red:#D7261E}
+  *{box-sizing:border-box}
+  body{
+    margin:0;background:var(--paper);color:var(--ink);
+    font-family:'Inter Tight',-apple-system,'Helvetica Neue',Arial,sans-serif;
+    font-size:16px;line-height:1.5;-webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:1280px;margin:0 auto;padding:0 40px}
+  .mono{font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:11px;letter-spacing:.09em;text-transform:uppercase}
+
+  /* ---------- top bar ---------- */
+  .top{position:sticky;top:0;z-index:20;background:#fff;border-bottom:1px solid var(--ink)}
+  .top .wrap{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;height:64px;gap:24px}
+  .logo{font-weight:800;letter-spacing:-.02em;font-size:17px}
+  .logo i{font-style:normal;color:var(--red)}
+  .nav{display:flex;gap:28px;color:#444}
+  .nav a:hover{color:var(--red)}
+  .top-right{display:flex;justify-content:flex-end;align-items:center;gap:18px}
+  .price-tag{font-weight:700;font-size:15px}
+  .btn-top{background:var(--ink);color:#fff;padding:11px 18px;font-size:12px;font-weight:600;letter-spacing:.02em}
+
+  /* ---------- hero ---------- */
+  .hero{border-bottom:1px solid var(--ink)}
+  .hero .wrap{display:grid;grid-template-columns:1.12fr .88fr;padding-top:0;padding-bottom:0}
+  .hero-l{padding:64px 56px 64px 0;border-right:1px solid var(--rule)}
+  .kicker{display:flex;gap:14px;align-items:center;margin-bottom:30px;color:#666}
+  .kicker b{color:var(--red)}
+  h1{margin:0;font-size:clamp(40px,4.9vw,72px);font-weight:800;letter-spacing:-.04em;line-height:.94}
+  h1 span{color:var(--red)}
+  .lead{margin:26px 0 0;max-width:520px;font-size:17px;line-height:1.6;color:#333}
+  .hero-actions{display:flex;align-items:center;gap:22px;margin-top:34px;flex-wrap:wrap}
+  .btn{display:inline-block;background:var(--ink);color:#fff;padding:17px 26px;font-size:13px;font-weight:600;letter-spacing:.01em}
+  .btn:hover{background:var(--red)}
+  .note{max-width:180px;font-size:11px;line-height:1.5;color:#777}
+
+  /* ---------- invoice ---------- */
+  .hero-r{padding:44px 0 44px 44px;display:flex;flex-direction:column;justify-content:center}
+  .invoice{border:1px solid var(--ink)}
+  .invoice-h{background:var(--ink);color:#fff;display:flex;justify-content:space-between;padding:11px 16px}
+  .invoice-h span{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase}
+  .rows{list-style:none;margin:0;padding:0}
+  .rows li{display:flex;justify-content:space-between;gap:16px;padding:11px 16px;border-bottom:1px solid var(--rule);font-size:13.5px}
+  .rows li span:first-child{color:#666}
+  .rows li b{font-weight:600}
+  .total{display:flex;justify-content:space-between;align-items:baseline;padding:16px;border-top:2px solid var(--ink)}
+  .total small{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:#666}
+  .total b{font-size:34px;font-weight:800;letter-spacing:-.03em;color:var(--red)}
+  .invoice-f{display:flex;gap:8px;flex-wrap:wrap;padding:12px 16px;border-top:1px solid var(--rule);background:var(--soft)}
+  .chip{border:1px solid #CFCFCF;background:#fff;padding:4px 8px;font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.08em;text-transform:uppercase;color:#444}
+
+  /* ---------- steps ---------- */
+  .steps{border-bottom:1px solid var(--ink)}
+  .steps .wrap{display:grid;grid-template-columns:repeat(3,1fr);gap:0}
+  .step{padding:34px 34px 38px 0}
+  .step + .step{border-left:1px solid var(--rule);padding-left:34px}
+  .step .num{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.14em;color:var(--red);padding-top:14px;border-top:2px solid var(--ink);display:block;margin-bottom:16px}
+  .step h3{margin:0 0 8px;font-size:17px;font-weight:700;letter-spacing:-.01em}
+  .step p{margin:0;font-size:13.5px;line-height:1.55;color:#555;max-width:300px}
+
+  /* ---------- content table ---------- */
+  .toc{padding:72px 0 84px}
+  .toc-head{display:flex;justify-content:space-between;align-items:baseline;gap:24px;margin-bottom:26px}
+  h2{font-size:clamp(26px,2.6vw,34px);font-weight:800;letter-spacing:-.03em;margin:0}
+  .toc-head .mono{color:#666}
+  table{width:100%;border-collapse:collapse}
+  thead th{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;
+    color:#666;text-align:left;padding:0 0 10px;border-bottom:1px solid var(--ink);font-weight:400}
+  thead th:last-child{text-align:right}
+  tbody td{padding:14px 0;border-bottom:1px solid var(--rule);font-size:15px}
+  tbody td:first-child{font-family:'IBM Plex Mono',monospace;font-size:11px;color:#999;width:60px}
+  tbody td:last-child{text-align:right;font-family:'IBM Plex Mono',monospace;font-size:12px;color:#555;width:90px}
+  tbody tr:hover td{background:var(--soft)}
+  .toc-foot{display:flex;justify-content:space-between;align-items:center;gap:20px;margin-top:26px;flex-wrap:wrap}
+  .toc-foot p{margin:0;font-size:12.5px;color:#777;max-width:560px}
+
+  /* ---------- cta band ---------- */
+  .band{background:var(--ink);color:#fff;padding:64px 0}
+  .band .wrap{display:flex;justify-content:space-between;align-items:center;gap:32px;flex-wrap:wrap}
+  .band h2{color:#fff;max-width:640px}
+  .band .btn{background:#fff;color:var(--ink)}
+  .band .btn:hover{background:var(--red);color:#fff}
+
+  footer{border-top:1px solid var(--ink);padding:26px 0 40px}
+  footer .wrap{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;color:#666}
+
+  @media (max-width:960px){
+    .wrap{padding:0 20px}
+    .top .wrap{grid-template-columns:1fr auto;height:60px}
+    .nav{display:none}
+    .hero .wrap{grid-template-columns:1fr}
+    .hero-l{padding:40px 0 32px;border-right:0}
+    .hero-r{padding:0 0 40px;border-top:1px solid var(--rule)}
+    .steps .wrap{grid-template-columns:1fr}
+    .step{padding:26px 0}
+    .step + .step{border-left:0;border-top:1px solid var(--rule);padding-left:0}
+    .toc{padding:48px 0 56px}
+    .toc-head{flex-direction:column;align-items:flex-start;gap:10px}
+    footer .wrap{flex-direction:column;gap:8px}
+    tbody td, thead th{font-size:13px}
+    .band{padding:44px 0}
+  }
+</style>
+</head>
+<body>
+
+<div class="top">
+  <div class="wrap">
+    <div class="logo">техкарти<i>.</i></div>
+    <div class="nav mono">
+      <a href="#toc">Зміст</a>
+      <a href="#how">Як отримати</a>
+      <a href="#faq">Питання</a>
+    </div>
+    <div class="top-right">
+      <span class="price-tag">449&nbsp;₴</span>
+      <a class="btn-top" href="#buy">Купити</a>
+    </div>
+  </div>
+</div>
+
+<div class="hero">
+  <div class="wrap">
+    <div class="hero-l">
+      <div class="kicker mono"><b>Набір 01</b><span>Торти на замовлення</span><span>·</span><span>Видання 2026</span></div>
+      <h1>10 техкарт.<br>64 сторінки.<br><span>449&nbsp;₴</span></h1>
+      <p class="lead">Рецептура, технологія та собівартість в одному PDF. Без підписки,
+        без курсу на 12 годин і без «секретів» — лише документ, за яким можна працювати.</p>
+      <div class="hero-actions">
+        <a class="btn" href="#buy">Купити набір</a>
+        <p class="note">Оплата карткою, Apple&nbsp;Pay або Google&nbsp;Pay. Файл — одразу після оплати.</p>
+      </div>
+    </div>
+
+    <div class="hero-r">
+      <div class="invoice">
+        <div class="invoice-h"><span>Замовлення</span><span>ТК-2026-0148</span></div>
+        <ul class="rows">
+          <li><span>Набір</span><b>Торти на замовлення</b></li>
+          <li><span>Технологічних карток</span><b>10</b></li>
+          <li><span>Сторінок</span><b>64</b></li>
+          <li><span>Мова</span><b>Українська</b></li>
+          <li><span>Формат</span><b>PDF, A4</b></li>
+          <li><span>Доступ</span><b>12 місяців</b></li>
+          <li><span>Оновлення</span><b>Безкоштовно</b></li>
+        </ul>
+        <div class="total"><small>Разом до сплати</small><b>449&nbsp;₴</b></div>
+        <div class="invoice-f">
+          <span class="chip">Visa</span><span class="chip">Mastercard</span>
+          <span class="chip">Apple&nbsp;Pay</span><span class="chip">Google&nbsp;Pay</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="steps" id="how">
+  <div class="wrap">
+    <div class="step">
+      <span class="num">01 / Оплата</span>
+      <h3>Платите карткою</h3>
+      <p>Один екран, без реєстрації. Потрібен лише email — на нього прийде файл.</p>
+    </div>
+    <div class="step">
+      <span class="num">02 / Лист</span>
+      <h3>Отримуєте лист</h3>
+      <p>Протягом хвилини після оплати: посилання на PDF і доступ до кабінету.</p>
+    </div>
+    <div class="step">
+      <span class="num">03 / Доступ</span>
+      <h3>Качаєте PDF</h3>
+      <p>Файл залишається в кабінеті 12 місяців. Оновлення набору — безкоштовно.</p>
+    </div>
+  </div>
+</div>
+
+<section class="toc" id="toc">
+  <div class="wrap">
+    <div class="toc-head">
+      <h2>Зміст набору</h2>
+      <span class="mono">10 документів · 64 сторінки</span>
+    </div>
+    <table>
+      <thead>
+        <tr><th>№</th><th>Технологічна картка</th><th>Стор.</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>01</td><td>Медовик класичний</td><td>7</td></tr>
+        <tr><td>02</td><td>Наполеон із заварним кремом</td><td>8</td></tr>
+        <tr><td>03</td><td>Сметанний торт</td><td>5</td></tr>
+        <tr><td>04</td><td>Червоний оксамит</td><td>7</td></tr>
+        <tr><td>05</td><td>Морквяний торт із крем-чизом</td><td>6</td></tr>
+        <tr><td>06</td><td>Шоколадно-горіховий</td><td>7</td></tr>
+        <tr><td>07</td><td>Лимонний із курдом</td><td>6</td></tr>
+        <tr><td>08</td><td>Кавовий із маскарпоне</td><td>6</td></tr>
+        <tr><td>09</td><td>Кокосовий «Рафаело»</td><td>6</td></tr>
+        <tr><td>10</td><td>Безглютеновий шоколадний</td><td>6</td></tr>
+      </tbody>
+    </table>
+    <div class="toc-foot">
+      <p>Кожна картка містить грамування брутто/нетто, покрокову технологію, розрахунок
+        собівартості, алергени та умови зберігання.</p>
+      <a class="btn" href="#buy">Купити набір — 449&nbsp;₴</a>
+    </div>
+  </div>
+</section>
+
+<div class="band" id="buy">
+  <div class="wrap">
+    <h2>Один документ замість десяти переписок у директі</h2>
+    <a class="btn" href="#">Оплатити 449&nbsp;₴</a>
+  </div>
+</div>
+
+<footer id="faq">
+  <div class="wrap">
+    <span class="mono">ФОП ______________________ · Публічна оферта · Політика конфіденційності</span>
+    <span class="mono">Підтримка: hello@example.com</span>
+  </div>
+</footer>
+
+</body>
+</html>

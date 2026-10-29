@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Технологічні картки — видання 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#12100E;
+    --ink:#EFE7DB;
+    --muted:#968C7F;
+    --gold:#C8A254;
+    --gold-soft:#D9B76A;
+    --line:rgba(200,162,84,.20);
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0;background:var(--bg);color:var(--ink);
+    font-family:'Inter',-apple-system,'Helvetica Neue',Arial,sans-serif;
+    font-weight:300;-webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 34px}
+
+  header{border-bottom:1px solid var(--line)}
+  .head{display:flex;align-items:center;justify-content:space-between;height:86px;gap:24px}
+  .brand{display:flex;align-items:center;gap:12px}
+  .mark{width:26px;height:26px;border:1px solid var(--gold);border-radius:50%;position:relative}
+  .mark::after{content:"";position:absolute;inset:6px;border:1px solid var(--gold);border-radius:50%;opacity:.55}
+  .brand span{font-size:11px;letter-spacing:.34em;text-transform:uppercase;color:var(--gold)}
+  nav{display:flex;gap:34px}
+  nav a{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);transition:color .25s}
+  nav a:hover{color:var(--gold-soft)}
+  .head-cta{font-size:12px;letter-spacing:.14em;text-transform:uppercase;border-bottom:1px solid var(--gold);padding-bottom:4px}
+
+  .hero{position:relative;text-align:center;padding:104px 0 84px;overflow:hidden}
+  .hero::before{
+    content:"";position:absolute;left:50%;top:-260px;width:1100px;height:1100px;
+    transform:translateX(-50%);pointer-events:none;
+    background:radial-gradient(circle, rgba(200,162,84,.16) 0%, rgba(200,162,84,.05) 38%, transparent 62%);
+  }
+  .ring{
+    position:absolute;left:50%;top:40px;transform:translateX(-50%);
+    width:720px;height:720px;border:1px solid rgba(200,162,84,.18);border-radius:50%;pointer-events:none;
+  }
+  .ring.two{width:980px;height:980px;top:-80px;border-color:rgba(200,162,84,.09)}
+  .eyebrow{position:relative;font-size:10.5px;letter-spacing:.44em;text-transform:uppercase;color:var(--gold);margin:0 0 30px}
+  h1{
+    position:relative;margin:0;font-family:'Playfair Display',Georgia,serif;font-weight:500;
+    font-size:clamp(42px,6.6vw,88px);line-height:1.02;letter-spacing:-.01em;
+  }
+  h1 em{font-style:italic;color:var(--gold-soft)}
+  .hero p.sub{position:relative;max-width:590px;margin:32px auto 0;font-size:16.5px;line-height:1.75;color:#ADA396}
+  .actions{position:relative;display:flex;align-items:center;justify-content:center;gap:30px;margin-top:42px;flex-wrap:wrap}
+  .btn{
+    display:inline-block;border:1px solid var(--gold);padding:17px 34px;
+    font-size:11.5px;letter-spacing:.24em;text-transform:uppercase;font-weight:400;
+    transition:background .25s,color .25s;
+  }
+  .btn:hover{background:var(--gold);color:#12100E}
+  .link-muted{font-size:11.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);border-bottom:1px solid rgba(150,140,127,.4);padding-bottom:5px}
+
+  .stats{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .stat{padding:38px 10px;text-align:center;border-left:1px solid var(--line)}
+  .stat:first-child{border-left:0}
+  .stat b{display:block;font-family:'Playfair Display',Georgia,serif;font-weight:500;font-size:42px;color:#F5EDE1;line-height:1}
+  .stat span{display:block;margin-top:12px;font-size:10px;letter-spacing:.26em;text-transform:uppercase;color:#857C71}
+
+  section{padding:104px 0}
+  h2{font-family:'Playfair Display',Georgia,serif;font-weight:500;font-size:clamp(30px,3.4vw,44px);margin:0 0 14px;letter-spacing:-.01em}
+  .section-head{display:flex;justify-content:space-between;align-items:flex-end;gap:40px;margin-bottom:54px}
+  .section-head p{margin:0;max-width:360px;color:#968C7F;font-size:14.5px;line-height:1.7}
+
+  .list{display:grid;grid-template-columns:1fr 1fr;gap:0 76px}
+  .item{display:flex;gap:24px;padding:28px 0;border-bottom:1px solid rgba(200,162,84,.14)}
+  .item .n{font-family:'Playfair Display',Georgia,serif;font-size:13px;color:var(--gold);min-width:26px;padding-top:5px}
+  .item h3{margin:0 0 7px;font-size:16px;font-weight:500;letter-spacing:.01em;color:#F1E9DD}
+  .item p{margin:0;font-size:14px;line-height:1.65;color:#8D8478}
+
+  .quote{padding:96px 0 110px;text-align:center;border-top:1px solid var(--line)}
+  blockquote{margin:0 auto;max-width:850px;font-family:'Playfair Display',Georgia,serif;font-style:italic;
+    font-size:clamp(22px,2.5vw,31px);line-height:1.5;color:#DCD1C1}
+  blockquote span{color:var(--gold-soft)}
+  .attribution{margin-top:26px;font-size:10.5px;letter-spacing:.26em;text-transform:uppercase;color:#7E756B}
+
+
+  .steps-a{padding:0 0 96px}
+  .steps-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0}
+  .st{padding:30px 34px 0 0;border-top:1px solid rgba(200,162,84,.28)}
+  .st + .st{border-left:1px solid rgba(200,162,84,.14);padding-left:34px}
+  .st span{display:block;font-family:'Playfair Display',Georgia,serif;font-size:14px;letter-spacing:.14em;color:var(--gold-soft);margin-bottom:14px}
+  .st h3{margin:0 0 8px;font-size:17px;font-weight:500;color:#F1E9DD}
+  .st p{margin:0;font-size:14px;line-height:1.65;color:#8D8478;max-width:280px}
+  @media (max-width:900px){.steps-grid{grid-template-columns:1fr}.st{padding:22px 0}.st + .st{border-left:0;padding-left:0}}
+
+  footer{border-top:1px solid var(--line);padding:40px 0 54px}
+  .foot{display:flex;justify-content:space-between;gap:30px;align-items:flex-start;flex-wrap:wrap}
+  .foot p{margin:0;font-size:11px;letter-spacing:.12em;line-height:2;text-transform:uppercase;color:#6E665C}
+  .foot a{border-bottom:1px solid rgba(150,140,127,.35)}
+
+  @media (max-width:900px){
+    nav{display:none}
+    .hero{padding:64px 0 56px}
+    .ring,.ring.two{display:none}
+    .stats{grid-template-columns:1fr}
+    .stat{border-left:0;border-top:1px solid var(--line);padding:26px 0}
+    .stat:first-child{border-top:0}
+    section{padding:64px 0}
+    .list{grid-template-columns:1fr;gap:0}
+    .section-head{flex-direction:column;align-items:flex-start;gap:14px;margin-bottom:34px}
+    .head-cta{display:none}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap head">
+    <div class="brand"><span class="mark"></span><span>Техкарти</span></div>
+    <nav>
+      <a href="#inside">Що входить</a>
+      <a href="#method">Метод</a>
+      <a href="#faq">Питання</a>
+    </nav>
+    <a class="head-cta" href="#buy">Купити — 449&nbsp;₴</a>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="ring"></div><div class="ring two"></div>
+  <div class="wrap">
+    <p class="eyebrow">Кондитерська документація · видання 2026</p>
+    <h1>Технологічні картки<br>для тих, хто рахує<br><em>кожен грам</em></h1>
+    <p class="sub">Десять перевірених рецептур із грамуванням, технологією та собівартістю.
+      Формат, за яким кондитерська працює стабільно — а не «як вийде».</p>
+    <div class="actions">
+      <a class="btn" href="#buy">Купити набір — 449&nbsp;₴</a>
+      <a class="link-muted" href="#inside">Подивитися зміст</a>
+    </div>
+  </div>
+</div>
+
+<div class="wrap">
+  <div class="stats">
+    <div class="stat"><b>10</b><span>технологічних карток</span></div>
+    <div class="stat"><b>64</b><span>сторінки PDF</span></div>
+    <div class="stat"><b>449&nbsp;₴</b><span>один платіж, без підписки</span></div>
+  </div>
+</div>
+
+<section id="inside">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Що входить у набір</h2>
+      <p>Кожна картка — окремий документ: від сировини до собівартості та умов зберігання.</p>
+    </div>
+    <div class="list">
+      <div class="item"><div class="n">01</div><div><h3>Рецептура брутто / нетто</h3><p>Грамування на 1 кг готового виробу та на партію, з точністю до грама.</p></div></div>
+      <div class="item"><div class="n">02</div><div><h3>Покрокова технологія</h3><p>Температури, час, обладнання та критерії готовності на кожному етапі.</p></div></div>
+      <div class="item"><div class="n">03</div><div><h3>Розрахунок собівартості</h3><p>Таблиця з актуальними цінами інгредієнтів, націнка та рекомендована ціна.</p></div></div>
+      <div class="item"><div class="n">04</div><div><h3>Терміни та умови зберігання</h3><p>Скільки живе виріб, за якої температури, як пакувати й транспортувати.</p></div></div>
+      <div class="item"><div class="n">05</div><div><h3>Алергени й харчова цінність</h3><p>КБЖВ на 100 г і перелік алергенів — для маркування та відповідей клієнту.</p></div></div>
+      <div class="item"><div class="n">06</div><div><h3>Фотоетапи та типові помилки</h3><p>Де найчастіше «сідає» виріб і як це виправити до того, як піде в смітник.</p></div></div>
+    </div>
+  </div>
+</section>
+
+
+<section class="steps-a" id="method">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Як це відбувається</h2>
+      <p>Три кроки — і файл у вас. Без дзвінків, листування та очікування менеджера.</p>
+    </div>
+    <div class="steps-grid">
+      <div class="st"><span>I</span><h3>Оплата</h3><p>Картка, Apple&nbsp;Pay або Google&nbsp;Pay. Один екран, без реєстрації.</p></div>
+      <div class="st"><span>II</span><h3>Лист</h3><p>Протягом хвилини — посилання на PDF і доступ до кабінету.</p></div>
+      <div class="st"><span>III</span><h3>Доступ</h3><p>Файл у кабінеті 12 місяців, оновлення набору — безкоштовні.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="quote">
+  <div class="wrap">
+    <blockquote>«Одна перероблена партія коштує дорожче <span>за весь набір</span>. Тому щоразу,
+      коли щось не виходить, — це вже не про рецепт, а про документ».</blockquote>
+    <p class="attribution">З практики · торт на 3 кг, який пішов у смітник</p>
+  </div>
+</section>
+
+<footer id="buy">
+  <div class="wrap foot">
+    <p>ФОП ______________________<br>Публічна оферта · Політика конфіденційності</p>
+    <p>Оплата карткою · Apple&nbsp;Pay · Google&nbsp;Pay<br>Доступ відразу після оплати</p>
+  </div>
+</footer>
+
+</body>
+</html>

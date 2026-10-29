@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Технологічні картки — cakes with benefits</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Manrope:wght@400;500;600;700&family=Marck+Script&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream:#FBF6EF;
+    --paper:#FFFDFA;
+    --pink:#DA9CC3;
+    --pink-soft:#F3DCEA;
+    --rose:#A9618A;
+    --rose-dark:#8B4C6D;
+    --mint:#ACDFE3;
+    --mint-soft:#E6F6F7;
+    --mint-dark:#4F9CA2;
+    --choco:#3A2418;
+    --muted:#7C6A61;
+    --line:#EDE2D6;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0;background:var(--cream);color:var(--choco);
+    font-family:'Manrope',-apple-system,'Helvetica Neue',Arial,sans-serif;
+    font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;
+    background-image:radial-gradient(rgba(58,36,24,.035) 1px, transparent 1px);
+    background-size:5px 5px;
+  }
+  a{color:inherit;text-decoration:none}
+  img{display:block;max-width:100%}
+  .wrap{max-width:1200px;margin:0 auto;padding:0 32px}
+  .script{font-family:'Marck Script',cursive;font-weight:400;color:var(--rose)}
+  .serif{font-family:'Cormorant Garamond',Georgia,serif}
+
+  /* top strip */
+  .strip{background:var(--mint);color:#2C4F52;font-size:11.5px;letter-spacing:.16em;text-transform:uppercase}
+  .strip .wrap{display:flex;justify-content:center;gap:26px;padding:9px 32px;flex-wrap:wrap}
+  .strip b{font-weight:600}
+
+  /* header */
+  header{background:rgba(251,246,239,.9);backdrop-filter:blur(10px);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:20}
+  .head{display:flex;align-items:center;justify-content:space-between;height:88px;gap:24px}
+  .logo{display:flex;align-items:center;gap:12px}
+  .logo .mark{width:46px;height:46px;border-radius:50%;background:var(--pink);display:grid;place-items:center;
+    color:#fff;font-family:'Marck Script',cursive;font-size:19px;line-height:1;text-align:center;transform:rotate(-6deg)}
+  .logo b{font-family:'Marck Script',cursive;font-size:23px;font-weight:400;line-height:1}
+  .logo small{display:block;font-family:'Manrope';font-size:8.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);margin-top:3px}
+  nav{display:flex;gap:30px;font-size:14px;color:#5D4B41}
+  nav a:hover{color:var(--rose)}
+  .btn{
+    display:inline-flex;align-items:center;gap:10px;background:var(--rose);color:#fff;
+    padding:14px 24px;border-radius:999px;font-size:14px;font-weight:600;
+    box-shadow:0 10px 24px -10px rgba(169,97,138,.7);transition:transform .15s ease, box-shadow .15s ease;
+  }
+  .btn:hover{transform:translateY(-2px);box-shadow:0 16px 30px -12px rgba(169,97,138,.8)}
+  .btn.small{padding:11px 20px;font-size:13px}
+  .btn.ghost{background:#fff;color:var(--rose);box-shadow:inset 0 0 0 1.5px var(--pink)}
+
+  /* hero */
+  .hero{padding:64px 0 72px}
+  .hero .wrap{display:grid;grid-template-columns:1.02fr .98fr;gap:64px;align-items:center}
+  .eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:11px;letter-spacing:.2em;text-transform:uppercase;
+    color:var(--rose);background:var(--pink-soft);padding:7px 14px;border-radius:999px;margin-bottom:26px}
+  .eyebrow i{width:6px;height:6px;border-radius:50%;background:var(--rose);display:inline-block}
+  h1{font-family:'Cormorant Garamond',Georgia,serif;font-weight:500;font-size:clamp(40px,4.6vw,66px);
+    line-height:1.04;letter-spacing:-.01em;margin:0}
+  h1 .script{font-size:1.06em}
+  .hero p.sub{margin:24px 0 0;max-width:490px;font-size:16.5px;color:#5D4B41;line-height:1.7}
+  .hero-actions{display:flex;align-items:center;gap:18px;margin-top:32px;flex-wrap:wrap}
+  .price-note{font-size:13px;color:var(--muted)}
+  .price-note b{color:var(--choco)}
+  .trust{display:flex;gap:10px;flex-wrap:wrap;margin-top:34px}
+  .trust span{font-size:12.5px;background:#fff;border:1px solid var(--line);padding:8px 14px;border-radius:999px;color:#5D4B41}
+  .trust span::before{content:"✓";color:var(--mint-dark);font-weight:700;margin-right:7px}
+
+  /* photo collage */
+  .collage{position:relative;padding:0 0 42px 42px;margin-top:14px}
+  .photo-main{border-radius:200px 200px 28px 28px;overflow:hidden;box-shadow:0 40px 70px -30px rgba(58,36,24,.45);background:var(--pink-soft)}
+  .photo-main img{width:100%;height:520px;object-fit:cover}
+  .photo-sub{position:absolute;left:0;bottom:0;width:210px;height:250px;border-radius:24px;overflow:hidden;
+    border:8px solid var(--cream);box-shadow:0 24px 40px -18px rgba(58,36,24,.4);transform:rotate(-4deg)}
+  .photo-sub img{width:100%;height:100%;object-fit:cover}
+  .stamp{position:absolute;right:-14px;bottom:96px;width:112px;height:112px;border-radius:50%;background:var(--pink);
+    color:#fff;display:grid;place-items:center;text-align:center;font-family:'Marck Script',cursive;font-size:19px;
+    line-height:.95;transform:rotate(9deg);box-shadow:0 14px 30px -12px rgba(169,97,138,.6)}
+  .stamp small{display:block;font-family:'Manrope';font-size:8px;letter-spacing:.18em;text-transform:uppercase;margin-top:4px;opacity:.9}
+
+  /* section base */
+  section{padding:84px 0}
+  .head-row{display:flex;justify-content:space-between;align-items:flex-end;gap:40px;margin-bottom:44px}
+  h2{font-family:'Cormorant Garamond',Georgia,serif;font-weight:500;font-size:clamp(30px,3.4vw,44px);line-height:1.1;margin:0}
+  .head-row p{margin:0;max-width:340px;color:var(--muted);font-size:14.5px;line-height:1.65}
+
+  /* inside cards */
+  .inside{background:var(--paper);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  .card{background:#fff;border:1px solid var(--line);border-radius:22px;padding:26px 24px 24px;transition:transform .18s ease, box-shadow .18s ease}
+  .card:hover{transform:translateY(-3px);box-shadow:0 20px 36px -24px rgba(58,36,24,.35)}
+  .ico{width:46px;height:46px;border-radius:50%;background:var(--mint-soft);display:grid;place-items:center;margin-bottom:16px}
+  .ico svg{width:24px;height:24px;stroke:var(--mint-dark);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+  .card h3{margin:0 0 6px;font-size:16px;font-weight:700;letter-spacing:-.01em}
+  .card p{margin:0;font-size:13.5px;line-height:1.6;color:var(--muted)}
+
+  /* portfolio */
+  .gallery{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+  .shot{position:relative;border-radius:20px;overflow:hidden;background:var(--pink-soft);box-shadow:0 18px 36px -26px rgba(58,36,24,.5)}
+  .shot img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease}
+  .shot:hover img{transform:scale(1.04)}
+  .shot.tall{grid-row:span 2}
+  .shot .cap{position:absolute;left:12px;bottom:12px;background:rgba(255,253,250,.92);backdrop-filter:blur(6px);
+    padding:5px 11px;border-radius:999px;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:#4A3A31}
+  .gallery .shot:nth-child(1){grid-column:span 2;grid-row:span 2;height:100%}
+  .gallery{grid-auto-rows:190px}
+
+  /* steps */
+  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  .step{background:#fff;border:1px solid var(--line);border-radius:22px;padding:28px 26px}
+  .step .n{font-family:'Marck Script',cursive;font-size:40px;color:var(--pink);line-height:1;display:block;margin-bottom:10px}
+  .step h3{margin:0 0 6px;font-size:16.5px}
+  .step p{margin:0;font-size:13.5px;color:var(--muted);line-height:1.6}
+
+  /* final cta */
+  .final{background:linear-gradient(180deg,#FDF3F8 0%, #FBF6EF 100%);border-top:1px solid var(--line);padding:76px 0}
+  .final .wrap{display:flex;align-items:center;justify-content:space-between;gap:40px;flex-wrap:wrap}
+  .final h2{max-width:620px}
+  .final small{display:block;margin-top:12px;font-size:13.5px;color:var(--muted)}
+
+  /* footer */
+  footer{padding:44px 0 56px;border-top:1px solid var(--line)}
+  .foot{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:30px;font-size:12.5px;color:var(--muted);line-height:1.8}
+  .foot b{color:var(--choco);font-weight:600}
+  .foot a{border-bottom:1px solid var(--line)}
+
+  @media (max-width:960px){
+    .hero .wrap{grid-template-columns:1fr;gap:36px}
+    .hero{padding:36px 0 48px}
+    .collage{padding:0 0 30px 30px;order:-1}
+    .photo-main img{height:380px}
+    .photo-sub{width:136px;height:164px;border-width:6px}
+    .stamp{width:88px;height:88px;font-size:14px;right:0;top:auto;bottom:96px}
+    nav{display:none}
+    .head{height:72px}
+    .logo b{font-size:20px}
+    .cards{grid-template-columns:1fr 1fr}
+    .gallery{grid-template-columns:1fr 1fr;grid-auto-rows:180px}
+    
+    .steps{grid-template-columns:1fr}
+    .foot{grid-template-columns:1fr;gap:18px}
+    section{padding:56px 0}
+    .head-row{flex-direction:column;align-items:flex-start;gap:12px;margin-bottom:28px}
+    .strip .wrap{gap:12px;font-size:10.5px}
+  }
+  @media (max-width:560px){
+    .cards{grid-template-columns:1fr}
+    .wrap{padding:0 20px}
+    .btn.small{font-size:12.5px;padding:10px 16px;white-space:nowrap}
+    .btn.small .full{display:none}
+    .logo small{display:none}
+    .strip .wrap span:nth-child(2){display:none}
+  }
+</style>
+</head>
+<body>
+
+<div class="strip">
+  <div class="wrap">
+    <span><b>cakes with benefits</b> · Київ</span>
+    <span>декор лише з шоколаду</span>
+    <span>без цукру, глютену та лактози — можливо</span>
+  </div>
+</div>
+
+<header>
+  <div class="wrap head">
+    <a class="logo" href="#">
+      <span class="mark">cwb</span>
+      <span><b>cakes with benefits</b><small>кондитерська · технологічні картки</small></span>
+    </a>
+    <nav>
+      <a href="#inside">Що входить</a>
+      <a href="#portfolio">Портфоліо</a>
+      <a href="#how">Як отримати</a>
+      <a href="#faq">Питання</a>
+    </nav>
+    <a class="btn small" href="#buy"><span class="full">Купити — </span>449&nbsp;₴</a>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="wrap">
+    <div>
+      <span class="eyebrow"><i></i>Набір 01 · Торти на замовлення</span>
+      <h1>Торти-скульптури<br>починаються з <span class="script">картки</span></h1>
+      <p class="sub">10 технологічних карт із грамуванням, технологією та собівартістю —
+        від кондитерської, яка робить такі торти щодня. Те, за чим ми працюємо самі.</p>
+      <div class="hero-actions">
+        <a class="btn" href="#buy">Купити набір — 449&nbsp;₴</a>
+        <span class="price-note"><b>10 карток</b> · 64 сторінки PDF<br>доступ одразу після оплати</span>
+      </div>
+      <div class="trust">
+        <span>Перевірено на власній кухні</span>
+        <span>Позначки алергенів</span>
+        <span>Безкоштовні оновлення</span>
+      </div>
+    </div>
+
+    <div class="collage">
+      <div class="photo-main"><img src="assets/cake9.jpg" alt="Торт із шоколадними метеликами"></div>
+      <div class="photo-sub"><img src="assets/cake1.jpg" alt="Весільний торт із пір'ям"></div>
+    </div>
+  </div>
+</div>
+
+<section class="inside" id="inside">
+  <div class="wrap">
+    <div class="head-row">
+      <h2>Що входить у набір</h2>
+      <p>Кожна картка — окремий документ: від сировини до ціни на вітрині. Нічого «на око».</p>
+    </div>
+    <div class="cards">
+      <div class="card">
+        <div class="ico"><svg viewBox="0 0 24 24"><path d="M9 6h11M9 12h11M9 18h11M4.6 6h.01M4.6 12h.01M4.6 18h.01"/></svg></div>
+        <h3>Рецептура брутто / нетто</h3>
+        <p>Грамування на 1 кг готового виробу й на партію, з точністю до грама.</p>
+      </div>
+      <div class="card">
+        <div class="ico"><svg viewBox="0 0 24 24"><path d="M12 4 21 20H3L12 4ZM12 10v4M12 17h.01"/></svg></div>
+        <h3>Технологія покроково</h3>
+        <p>Температури, час, обладнання та критерії готовності на кожному етапі.</p>
+      </div>
+      <div class="card">
+        <div class="ico"><svg viewBox="0 0 24 24"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 7h8M8 11h3M14 11h2M8 15h3M14 15h2"/></svg></div>
+        <h3>Розрахунок собівартості</h3>
+        <p>Таблиця з актуальними цінами інгредієнтів, націнка та рекомендована ціна.</p>
+      </div>
+      <div class="card">
+        <div class="ico"><svg viewBox="0 0 24 24"><path d="M12 3.5a8.5 8.5 0 1 0 0 17 8.5 8.5 0 0 0 0-17ZM12 7.5V12l3 2"/></svg></div>
+        <h3>Терміни зберігання</h3>
+        <p>Скільки живе виріб, за якої температури, як пакувати й транспортувати.</p>
+      </div>
+      <div class="card">
+        <div class="ico"><svg viewBox="0 0 24 24"><path d="M20 4c0 9.5-6.5 14-14.5 14C5.5 8.5 11 4 20 4ZM5 20c2.5-6 6.5-9.5 12-11.5"/></svg></div>
+        <h3>Алергени й КБЖВ</h3>
+        <p>Харчова цінність на 100 г і перелік алергенів — для маркування та відповідей клієнту.</p>
+      </div>
+      <div class="card">
+        <div class="ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8v4M12 16h.01"/></svg></div>
+        <h3>Типові помилки</h3>
+        <p>Де саме «сідає» виріб і як це виправити до того, як торт піде в смітник.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="portfolio">
+  <div class="wrap">
+    <div class="head-row">
+      <h2>Такі торти <span class="script">народжуються</span> з цих карток</h2>
+      <p>Не стокові фото: усе, що ви бачите, зроблено в нашій кондитерській за цими ж технологіями.</p>
+    </div>
+    <div class="gallery">
+      <div class="shot"><img src="assets/cake2.jpg" alt="Торт-гном"><span class="cap">Дитячий</span></div>
+      <div class="shot"><img src="assets/cake7.jpg" alt="Торт із фруктів"><span class="cap">Фрукти</span></div>
+      <div class="shot"><img src="assets/cake8.jpg" alt="Чорний торт із трояндами"><span class="cap">Шоколад</span></div>
+      <div class="shot"><img src="assets/cake6.jpg" alt="Торт-книга"><span class="cap">Скульптура</span></div>
+      <div class="shot"><img src="assets/cake4.jpg" alt="Торт-жаба"><span class="cap">Фігура</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="inside" id="how">
+  <div class="wrap">
+    <div class="head-row">
+      <h2>Як отримати набір</h2>
+      <p>Три кроки — і картки у вас на телефоні й на кухні.</p>
+    </div>
+    <div class="steps">
+      <div class="step"><span class="n">1</span><h3>Оформлення</h3><p>Один екран, без реєстрації. Потрібен лише email — на нього прийде файл.</p></div>
+      <div class="step"><span class="n">2</span><h3>Оплата</h3><p>Картка, Apple&nbsp;Pay або Google&nbsp;Pay. Чек надсилаємо на пошту.</p></div>
+      <div class="step"><span class="n">3</span><h3>Доступ</h3><p>PDF у кабінеті 12 місяців. Оновлення карток — безкоштовні.</p></div>
+    </div>
+  </div>
+</section>
+
+<div class="final" id="buy">
+  <div class="wrap">
+    <div>
+      <h2>Набір, за яким наша кондитерська працює <span class="script">щодня</span></h2>
+      <small>10 технологічних карт · 64 сторінки · PDF · 449&nbsp;₴</small>
+    </div>
+    <a class="btn" href="#">Купити за 449&nbsp;₴</a>
+  </div>
+</div>
+
+<footer id="faq">
+  <div class="wrap foot">
+    <div>
+      <b>cakes with benefits</b><br>
+      ФОП ______________________<br>
+      Київ · доставка по Україні
+    </div>
+    <div>
+      <a href="#">Публічна оферта</a><br>
+      <a href="#">Політика конфіденційності</a><br>
+      <a href="#">Повернення коштів</a>
+    </div>
+    <div>
+      Підтримка: hello@example.com<br>
+      Telegram: @cakes_with_benefits<br>
+      Instagram: @cakes_with_benefits
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
